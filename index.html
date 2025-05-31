@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #navbar header {
+            padding: 30px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        #navbar header h1 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-align: center;
+            color: #ecf0f1;
+        }
+
+        .nav-link {
+            display: block;
+            color: #bdc3c7;
+            text-decoration: none;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            background: rgba(52, 152, 219, 0.2);
+            color: #3498db;
+            padding-left: 25px;
+        }
+
+        .nav-link:active {
+            background: rgba(52, 152, 219, 0.3);
+        }
+
+        #main-doc {
+            margin-left: 280px;
+            padding: 40px;
+            max-width: 1000px;
+        }
+
+        .main-section {
+            margin-bottom: 50px;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #3498db;
+        }
+
+        .main-section header {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 15px;
+        }
+
+        .main-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .main-section p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        .main-section ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .main-section li {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        code {
+            background: #f8f9fa;
+            color: #e74c3c;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            border: 1px solid #e9ecef;
+        }
+
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            line-height: 1.5;
+            border-left: 4px solid #3498db;
+        }
+
+        .code-block code {
+            background: none;
+            color: inherit;
+            padding: 0;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #16a085;
+        }
+
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+
+        @media (max-width: 768px) {
+            #navbar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                box-shadow: none;
+            }
+
+            #navbar header {
+                padding: 20px;
+            }
+
+            .nav-link {
+                display: inline-block;
+                width: calc(50% - 10px);
+                margin: 5px;
+                text-align: center;
+                border-radius: 6px;
+                border-bottom: none;
+            }
+
+            #main-doc {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .main-section {
+                padding: 25px;
+            }
+
+            .main-section h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-link {
+                width: 100%;
+                margin: 2px 0;
+            }
+
+            #main-doc {
+                padding: 15px;
+            }
+
+            .main-section {
+                padding: 20px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar for navbar */
+        #navbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #navbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        #navbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <header>
+            <h1>Python Programming Guide</h1>
+        </header>
+        <a class="nav-link" href="#Introduction_to_Python">Introduction to Python</a>
+        <a class="nav-link" href="#Python_Syntax_and_Variables">Python Syntax and Variables</a>
+        <a class="nav-link" href="#Data_Types_and_Structures">Data Types and Structures</a>
+        <a class="nav-link" href="#Control_Flow_Statements">Control Flow Statements</a>
+        <a class="nav-link" href="#Functions_and_Modules">Functions and Modules</a>
+        <a class="nav-link" href="#Object_Oriented_Programming">Object Oriented Programming</a>
+        <a class="nav-link" href="#Error_Handling_and_Exceptions">Error Handling and Exceptions</a>
+    </nav>
+
+    <main id="main-doc">
+        <section class="main-section" id="Introduction_to_Python">
+            <header>
+                <h2>Introduction to Python</h2>
+            </header>
+            <p>Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages in the world.</p>
+            
+            <p>Python's philosophy emphasizes code readability and simplicity, making it an excellent choice for beginners and experienced developers alike. The language supports multiple programming paradigms, including procedural, object-oriented, and functional programming.</p>
+
+            <div class="highlight">
+                <p>Key features of Python include:</p>
+                <ul>
+                    <li>Easy-to-learn syntax that emphasizes readability</li>
+                    <li>Extensive standard library with built-in modules</li>
+                    <li>Cross-platform compatibility</li>
+                    <li>Large and active community support</li>
+                    <li>Versatile applications in web development, data science, AI, and more</li>
+                </ul>
+            </div>
+
+            <p>To get started with Python, you need to install it on your system. You can download Python from the official website at <code>python.org</code>. Once installed, you can run Python code using the interactive interpreter or by creating Python files with the <code>.py</code> extension.</p>
+
+            <div class="code-block">
+                <code>
+# Your first Python program
+print("Hello, World!")
+print("Welcome to Python programming!")
+                </code>
+            </div>
+        </section>
+
+        <section class="main-section" id="Python_Syntax_and_Variables">
+            <header>
+                <h2>Python Syntax and Variables</h2>
+            </header>
+            <p>Python syntax is designed to be intuitive and readable. Unlike many other programming languages, Python uses indentation to define code blocks instead of curly braces or keywords.</p>
+
+            <p>Variables in Python are created when you assign a value to them. Python is dynamically typed, meaning you don't need to declare the type of a variable explicitly.</p>
+
+            <div class="code-block">
+                <code>
+# Variable assignment
+name = "Alice"
+age = 25
+height = 5.6
+is_student = True
+
+# Python uses indentation for code blocks
+if age >= 18:
+    print("You are an adult")
+    print("You can vote")
+else:
+    print("You are a minor")
+                </code>
+            </div>
+
+            <p>Python follows specific naming conventions for variables. Variable names should be descriptive and follow the snake_case convention. They must start with a letter or underscore, and can contain letters, numbers, and underscores.</p>
+
+            <div class="note">
+                <strong>Important:</strong> Python is case-sensitive, so <code>myVariable</code> and <code>myvariable</code> are different variables.
+            </div>
+
+            <p>Comments in Python start with the <code>#</code> symbol for single-line comments, or use triple quotes for multi-line comments. Proper commenting is essential for code maintainability.</p>
+        </section>
+
+        <section class="main-section" id="Data_Types_and_Structures">
+            <header>
+                <h2>Data Types and Structures</h2>
+            </header>
+            <p>Python provides several built-in data types that are essential for programming. Understanding these data types is crucial for effective Python programming.</p>
+
+            <p>The basic data types in Python include integers, floats, strings, and booleans. Python also provides powerful data structures like lists, tuples, dictionaries, and sets.</p>
+
+            <div class="code-block">
+                <code>
+# Basic data types
+integer_num = 42
+float_num = 3.14159
+text_string = "Hello, Python!"
+boolean_value = True
+
+# Data structures
+my_list = [1, 2, 3, "four", 5.0]
+my_tuple = (10, 20, 30)
+my_dict = {"name": "John", "age": 30, "city": "New York"}
+my_set = {1, 2, 3, 4, 5}
+                </code>
+            </div>
+
+            <p>Lists are ordered, mutable collections that can contain different data types. They support indexing, slicing, and various methods for manipulation.</p>
+
+            <ul>
+                <li>Lists: Ordered, mutable collections <code>[1, 2, 3]</code></li>
+                <li>Tuples: Ordered, immutable collections <code>(1, 2, 3)</code></li>
+                <li>Dictionaries: Key-value pairs <code>{"key": "value"}</code></li>
+                <li>Sets: Unordered collections of unique elements <code>{1, 2, 3}</code></li>
+            </ul>
+
+            <p>Python's dynamic typing allows variables to change their type during runtime, providing flexibility but requiring careful attention to data type management in larger applications.</p>
+        </section>
+
+        <section class="main-section" id="Control_Flow_Statements">
+            <header>
+                <h2>Control Flow Statements</h2>
+            </header>
+            <p>Control flow statements allow you to control the execution order of your program. Python provides several control flow statements including conditional statements and loops.</p>
+
+            <p>The <code>if</code>, <code>elif</code>, and <code>else</code> statements are used for conditional execution. Python also provides <code>for</code> and <code>while</code> loops for repetitive tasks.</p>
+
+            <div class="code-block">
+                <code>
+# Conditional statements
+score = 85
+
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+else:
+    grade = "F"
+
+print(f"Your grade is: {grade}")
+
+# For loop
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(f"I like {fruit}")
+
+# While loop
+count = 0
+while count < 5:
+    print(f"Count: {count}")
+    count += 1
+                </code>
+            </div>
+
+            <p>Python's <code>for</code> loops are particularly powerful because they can iterate over any iterable object, including strings, lists, tuples, and dictionaries. The <code>range()</code> function is commonly used to generate sequences of numbers for loops.</p>
+
+            <ul>
+                <li>Use <code>break</code> to exit a loop prematurely</li>
+                <li>Use <code>continue</code> to skip the current iteration</li>
+                <li>Use <code>pass</code> as a placeholder for empty code blocks</li>
+            </ul>
+
+            <p>List comprehensions provide a concise way to create lists based on existing lists or other iterables, combining loops and conditional logic in a single line.</p>
+        </section>
+
+        <section class="main-section" id="Functions_and_Modules">
+            <header>
+                <h2>Functions and Modules</h2>
+            </header>
+            <p>Functions are reusable blocks of code that perform specific tasks. They help organize code, reduce repetition, and make programs more modular and maintainable.</p>
+
+            <p>Python functions are defined using the <code>def</code> keyword, followed by the function name and parameters. Functions can accept arguments, perform operations, and return values.</p>
+
+            <div class="code-block">
+                <code>
+# Function definition
+def greet_user(name, age=18):
+    """
+    This function greets a user with their name and age.
+    Default age is 18 if not provided.
+    """
+    message = f"Hello, {name}! You are {age} years old."
+    return message
+
+# Function calls
+greeting1 = greet_user("Alice", 25)
+greeting2 = greet_user("Bob")  # Uses default age
+
+print(greeting1)
+print(greeting2)
+
+# Lambda functions (anonymous functions)
+square = lambda x: x ** 2
+print(square(5))  # Output: 25
+                </code>
+            </div>
+
+            <p>Modules are Python files containing functions, classes, and variables that can be imported and used in other Python programs. Python's extensive standard library provides modules for various tasks.</p>
+
+            <ul>
+                <li>Import entire modules: <code>import math</code></li>
+                <li>Import specific functions: <code>from math import sqrt</code></li>
+                <li>Import with aliases: <code>import numpy as np</code></li>
+            </ul>
+
+            <p>Creating your own modules involves saving Python code in a <code>.py</code> file and importing it into other programs. This promotes code reusability and organization in larger projects.</p>
+
+            <p>Function parameters can include default values, keyword arguments, and variable-length arguments using <code>*args</code> and <code>**kwargs</code>, providing flexibility in function design.</p>
+        </section>
+
+        <section class="main-section" id="Object_Oriented_Programming">
+            <header>
+                <h2>Object Oriented Programming</h2>
+            </header>
+            <p>Object-Oriented Programming (OOP) is a programming paradigm that organizes code into classes and objects. Python fully supports OOP concepts including encapsulation, inheritance, and polymorphism.</p>
+
+            <p>Classes are blueprints for creating objects, while objects are instances of classes. Classes define attributes (data) and methods (functions) that objects can have.</p>
+
+            <div class="code-block">
+                <code>
+# Class definition
+class Car:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.mileage = 0
+    
+    def drive(self, miles):
+        self.mileage += miles
+        print(f"Drove {miles} miles. Total mileage: {self.mileage}")
+    
+    def get_info(self):
+        return f"{self.year} {self.make} {self.model}"
+
+# Creating objects
+my_car = Car("Toyota", "Camry", 2022)
+print(my_car.get_info())
+my_car.drive(100)
+
+# Inheritance
+class ElectricCar(Car):
+    def __init__(self, make, model, year, battery_size):
+        super().__init__(make, model, year)
+        self.battery_size = battery_size
+    
+    def charge(self):
+        print("Charging the battery...")
+                </code>
+            </div>
+
+            <p>Inheritance allows classes to inherit attributes and methods from parent classes, promoting code reuse and creating hierarchical relationships between classes.</p>
+
+            <ul>
+                <li>Encapsulation: Bundling data and methods within classes</li>
+                <li>Inheritance: Creating new classes based on existing classes</li>
+                <li>Polymorphism: Using the same interface for different data types</li>
+            </ul>
+
+            <p>Python supports multiple inheritance, allowing a class to inherit from multiple parent classes. Special methods like <code>__init__</code>, <code>__str__</code>, and <code>__len__</code> provide customized behavior for objects.</p>
+        </section>
+
+        <section class="main-section" id="Error_Handling_and_Exceptions">
+            <header>
+                <h2>Error Handling and Exceptions</h2>
+            </header>
+            <p>Error handling is crucial for writing robust Python programs. Python uses exceptions to handle errors that occur during program execution, allowing programs to respond gracefully to unexpected situations.</p>
+
+            <p>The <code>try</code>, <code>except</code>, <code>else</code>, and <code>finally</code> statements are used to handle exceptions. This mechanism prevents programs from crashing when errors occur.</p>
+
+            <div class="code-block">
+                <code>
+# Basic exception handling
+try:
+    number = int(input("Enter a number: "))
+    result = 10 / number
+    print(f"Result: {result}")
+except ValueError:
+    print("Invalid input! Please enter a valid number.")
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+else:
+    print("Operation completed successfully!")
+finally:
+    print("This block always executes.")
+
+# Raising custom exceptions
+def validate_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative")
+    if age > 150:
+        raise ValueError("Age seems unrealistic")
+    return True
+                </code>
+            </div>
+
+            <p>Python provides many built-in exception types for different error conditions. You can also create custom exceptions by defining classes that inherit from the <code>Exception</code> class.</p>
+
+            <ul>
+                <li><code>ValueError</code>: Raised when a function receives an argument of correct type but inappropriate value</li>
+                <li><code>TypeError</code>: Raised when an operation is performed on an inappropriate type</li>
+                <li><code>IndexError</code>: Raised when trying to access an index that doesn't exist</li>
+                <li><code>KeyError</code>: Raised when trying to access a dictionary key that doesn't exist</li>
+                <li><code>FileNotFoundError</code>: Raised when trying to open a file that doesn't exist</li>
+            </ul>
+
+            <p>Proper exception handling improves user experience and makes debugging easier. Always handle specific exceptions when possible, rather than using broad exception handlers.</p>
+
+            <p>The <code>finally</code> block is useful for cleanup operations that must execute regardless of whether an exception occurred, such as closing files or database connections.</p>
+        </section>
+    </main>
+</body>
+</html>
